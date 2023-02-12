@@ -1,8 +1,8 @@
-import PathNode from './src/interfaces/PathNode';
-import PathTree from './src/interfaces/PathTree';
+import normalize from './src/util/normalize';
+import { PathNode, PathTree } from './src/interfaces';
 
-function main<T = never>(pathList: string[]): void;
-function main<T>(pathList: PathNode<T>[]): void;
+function main(pathList: string[]): PathTree<never>;
+function main<T>(pathList: PathNode<T>[]): PathTree<T>;
 
 function main<T>(pathList: string[] | PathNode<T>[]) {
     const tree: PathTree<T> = {
@@ -10,17 +10,12 @@ function main<T>(pathList: string[] | PathNode<T>[]) {
         children: {}
     };
 
-    const _list: PathNode<T>[] =
-        typeof pathList[0] === 'string'
-            ? pathList.map(
-                  (p): PathNode<never> => ({
-                      path: p as string
-                  })
-              )
-            : (pathList as PathNode<T>[]);
+    const _list = normalize(pathList);
 
     for (const path of _list) {
     }
+
+    return tree;
 }
 
 export = main;
