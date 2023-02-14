@@ -1,13 +1,18 @@
 import { InternalPathNode, PathTree } from '@interfaces';
 
-function parse<T>(nodes: InternalPathNode<T>[], currentTree: PathTree<T>): PathTree<T> {
-    for (const node of nodes) {
-        if (node.path === currentTree.self) {
+export default function <T>(
+    nodes: InternalPathNode<T>[],
+    currentTree: PathTree<T>
+): PathTree<T> {
+    const sortedNodes = nodes.sort((a, b) => a.path.length - b.path.length);
+
+    for (const node of sortedNodes) {
+        if (!node.parsedPath.length) {
             currentTree.payload = node.payload;
         }
+
+        
     }
 
     return {} as PathTree<T>;
 }
-
-export default parse;
