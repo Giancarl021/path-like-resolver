@@ -1,5 +1,6 @@
-import normalize from './src/util/normalize';
-import { PathNode, PathTree } from './src/interfaces';
+import { parse, normalize } from '@services';
+import { checkIntegrity } from '@util';
+import { PathNode, PathTree } from '@interfaces';
 
 function main(pathList: string[]): PathTree<never>;
 function main<T>(pathList: PathNode<T>[]): PathTree<T>;
@@ -10,10 +11,11 @@ function main<T>(pathList: string[] | PathNode<T>[]) {
         children: {}
     };
 
-    const _list = normalize(pathList);
+    const list = normalize(pathList);
 
-    for (const path of _list) {
-    }
+    checkIntegrity(list);
+
+    parse(list, tree);
 
     return tree;
 }

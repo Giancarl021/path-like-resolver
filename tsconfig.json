@@ -8,6 +8,11 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@interfaces": ["./src/interfaces/index.ts"],
+      "@services": ["./src/services/index.ts"],
+      "@util": ["./src/util/index.ts"]
+    }
   },
   "include": ["index.ts", "interfaces.ts", "src/**/*.ts"],
   "exclude": ["node_modules", "lib"]
