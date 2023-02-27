@@ -12,7 +12,8 @@
       "@interfaces": ["./src/interfaces/index.ts"],
       "@services": ["./src/services/index.ts"],
       "@util": ["./src/util/index.ts"]
-    }
+    },
+    "baseUrl": "."
   },
   "include": ["index.ts", "interfaces.ts", "src/**/*.ts"],
   "exclude": ["node_modules", "lib"]
