@@ -8,6 +8,7 @@ function main<T>(pathList: PathNode<T>[]): PathTree<T>;
 function main<T>(pathList: string[] | PathNode<T>[]) {
     const tree: PathTree<T> = {
         self: '/',
+        payload: undefined,
         children: {}
     };
 
