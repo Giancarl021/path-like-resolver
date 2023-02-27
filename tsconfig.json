@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs",
+    "module": "CommonJS",
     "lib": ["ESNext"],
     "declaration": true,
     "outDir": "lib",
@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@interfaces": ["./src/interfaces/index.ts"],
-      "@services": ["./src/services/index.ts"],
-      "@util": ["./src/util/index.ts"]
+      "@interfaces": ["./src/interfaces/index"],
+      "@services": ["./src/services/index"],
+      "@util": ["./src/util/index"]
     },
     "baseUrl": "."
   },
