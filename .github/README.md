@@ -44,8 +44,8 @@ interface PathTree<T> {
     children: Record<string, PathTree<T>>;
 }
 
-function main(pathList: string[]): PathTree<never>;
-function main<T>(pathList: PathNode<T>[]): PathTree<T>;
+function resolver(pathList: string[]): PathTree<never>;
+function resolver<T>(pathList: PathNode<T>[]): PathTree<T>;
 function resolver<T>(pathList: (string | PathNode<T>)[]): PathTree<T>;
 ```
 
