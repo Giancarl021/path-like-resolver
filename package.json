@@ -1,6 +1,6 @@
 {
     "name": "@giancarl021/path-like-resolver",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Generates a tree structure using a list of UNIX-like paths, with support for custom payloads.",
     "main": "lib/index.js",
     "author": "Giancarlo Fontela da Luz <gian.f.luz@hotmail.com>",
