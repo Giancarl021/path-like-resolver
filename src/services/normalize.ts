@@ -1,7 +1,7 @@
 import { InternalPathNode, PathNode } from '@interfaces';
 import { splitPath } from '@util';
 
-export default function <T>(
+export default function normalize<T>(
     list: string[] | PathNode<T>[]
 ): InternalPathNode<T>[] {
     const nodes: PathNode<T>[] =

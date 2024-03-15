@@ -94,4 +94,61 @@ test('Valid resolves', () => {
     expect(resolver(complexPathList)).toEqual(complexTree);
 });
 
+test('Collapsed resolves', () => {
+    const simpleTree: PathTree<never> = {
+        self: '/',
+        children: {
+            a: {
+                self: '/a',
+                children: {}
+            },
+            'b/c': {
+                self: '/b/c',
+                children: {}
+            }
+        }
+    };
+
+    const complexTree: PathTree<number> = {
+        self: '/',
+        payload: 0,
+        children: {
+            a: {
+                self: '/a',
+                payload: 1,
+                children: {}
+            },
+            'b/c': {
+                self: '/b/c',
+                payload: 3,
+                children: {}
+            }
+        }
+    };
+
+    const simplePathList = ['/a', '/b/c'];
+    const complexPathList = [
+        {
+            path: '/',
+            payload: 0
+        },
+        {
+            path: '/a',
+            payload: 1
+        },
+        {
+            path: '/b',
+            payload: undefined
+        },
+        {
+            path: '/b/c',
+            payload: 3
+        }
+    ];
+
+    expect(resolver(simplePathList, true)).toEqual(simpleTree);
+
+    expect(resolver(complexPathList, true)).toEqual(complexTree);
+});
+
 test('Vibe check', () => {});
