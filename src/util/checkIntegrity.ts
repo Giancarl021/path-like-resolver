@@ -1,6 +1,6 @@
 import { InternalPathNode } from '@interfaces';
 
-export default function <T>(nodes: InternalPathNode<T>[]) {
+export default function checkIntegrity<T>(nodes: InternalPathNode<T>[]) {
     const paths = nodes.map(node => node.path.trim());
     const uniquePaths = paths.filter(
         (path, index) => paths.indexOf(path) === index

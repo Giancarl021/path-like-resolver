@@ -1,11 +1,20 @@
-import { parse, normalize } from '@services';
+import { parse, normalize, collapse as collapseTree } from '@services';
 import { checkIntegrity } from '@util';
 import { PathNode, PathTree } from '@interfaces';
 
-function main(pathList: string[]): PathTree<never>;
-function main<T>(pathList: PathNode<T>[]): PathTree<T>;
+export default function pathLikeResolver(
+    pathList: string[],
+    collapse?: boolean
+): PathTree<never>;
+export default function pathLikeResolver<T>(
+    pathList: PathNode<T>[],
+    collapse?: boolean
+): PathTree<T>;
 
-function main<T>(pathList: string[] | PathNode<T>[]) {
+export default function pathLikeResolver<T>(
+    pathList: string[] | PathNode<T>[],
+    collapse: boolean = false
+): PathTree<T> {
     const tree: PathTree<T> = {
         self: '/',
         payload: undefined,
@@ -18,7 +27,7 @@ function main<T>(pathList: string[] | PathNode<T>[]) {
 
     parse(list, tree);
 
+    if (collapse) return collapseTree(tree);
+
     return tree;
 }
-
-export = main;

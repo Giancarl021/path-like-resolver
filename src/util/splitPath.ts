@@ -1,7 +1,7 @@
 const PATH_REGEX = /(\\|\/)+/;
 const PATH_SEPARATORS = ['/', '\\'];
 
-export default function (path: string) {
+export default function splitPath(path: string) {
     const splittedPath = path.split(PATH_REGEX);
 
     const filteredPath = splittedPath.filter(
